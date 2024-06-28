@@ -14,10 +14,6 @@
                 <div class="card">
                     <div class="card-header text-center">
                         <p class="fs-4">Add Emp</p>
-                        <th:block th:if="${session.msg}">
-                            <p class="text-center text-success fs-4">[[${session.msg}]]</p>
-                            <th:block th:text="${@empServiceImpl.removeSessionMessage()}"></th:block>
-                        </th:block>
                     </div>
                     <div class="card-body">
                         <form action="addEmployee" method="post">

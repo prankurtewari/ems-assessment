@@ -21,6 +21,10 @@ public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws
                 registry.anyRequest().authenticated();
             })
             .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
+            .logout()
+            .permitAll()
+            .logoutSuccessUrl("/")
+            .and()
             .build();
 }
 }

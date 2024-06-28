@@ -4,10 +4,7 @@ import com.ems.assessment.employee.entity.Employee;
 import com.ems.assessment.employee.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Service
@@ -47,12 +44,4 @@ public class EmployeeServiceImpl implements IEmployee{
         }
         return false;
     }
-    public void removeSessionMessage() {
-        HttpSession session = ((ServletRequestAttributes) (RequestContextHolder.getRequestAttributes())).getRequest()
-                .getSession();
-
-        session.removeAttribute("msg");
-
-    }
-
 }

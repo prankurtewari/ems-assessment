@@ -12,10 +12,6 @@
             <div class="col-md-10 offset-md-1">
                 <div class="card">
                     <div class="card-header text-center fs-4">Employee Details</div>
-                    <th:block th:if="${session.msg}">
-                        <p class="text-center text-success fs-4">[[${session.msg}]]</p>
-                        <th:block th:text="${@employeeServiceImpl.removeSessionMessage()}"></th:block>
-                    </th:block>
                     <div class="card-body">
                         <table class="table">
                             <thead>
@@ -35,7 +31,7 @@
                                 <td>[[${e.email}]]</td>
                                 <td>[[${e.gender}]]</td>
                                 <td>[[${e.department}]]</td>
-                                <td><a th:href="@{'/editEmployee/'+${e.id}}"
+                                <td ><a th:href="@{'/editEmployee/'+${e.id}}"
                                        class="btn btn-sm btn-primary">Edit</a>
 
                                     <a th:href="@{'deleteEmployee/'+${e.id}}"
