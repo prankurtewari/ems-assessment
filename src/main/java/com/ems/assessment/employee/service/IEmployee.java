@@ -7,7 +7,7 @@ import java.util.List;
 
 
 public interface IEmployee {
-    public Employee saveEmp(Employee emp);
+    public void saveEmp(Employee emp);
 
     public List<Employee> getAllEmp();
 

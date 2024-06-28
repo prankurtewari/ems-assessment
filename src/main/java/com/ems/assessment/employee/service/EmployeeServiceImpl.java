@@ -2,6 +2,8 @@ package com.ems.assessment.employee.service;
 
 import com.ems.assessment.employee.entity.Employee;
 import com.ems.assessment.employee.repository.EmployeeRepository;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,19 +11,18 @@ import java.util.List;
 
 @Service
 public class EmployeeServiceImpl implements IEmployee{
-    
+
+    private static final Log log = LogFactory.getLog(EmployeeServiceImpl.class);
     @Autowired
     private EmployeeRepository employeeRepository;
 
     @Override
-    public Employee saveEmp(Employee emp) {
+    public void saveEmp(Employee emp) {
         try {
             Employee newEmp = employeeRepository.save(emp);
-            return newEmp;
         }
         catch (Exception e){
-            System.out.println(e);
-            return new Employee();
+            log.error("Employee could not be added " + e.getMessage());
         }
     }
 
